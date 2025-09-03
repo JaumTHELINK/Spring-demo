@@ -1,11 +1,11 @@
-package com.turmaa.helpdesk.domain.enuns;
+package com.turmaa.helpdesk.domain.enums;
 
-public enum Prioridade {
-	BAIXA(0,"ROLE_BAIXA"),
-	MEDIA(1, "ROLE_MEDIA"),
-	ALTA(2, "ROLE_ALTA");
+public enum Perfil {
+	ADMIN(0,"ROLE_ADMIN"),
+	CLIENTE(1, "ROLE_CLIENTE"),
+	TECNICO(2, "ROLE_TECNICO");
 	
-	Prioridade(int codigo, String descricao) {
+	Perfil(int codigo, String descricao) {
 		this.codigo = codigo;
 		this.descricao = descricao;
 	}
@@ -19,11 +19,11 @@ public enum Prioridade {
 		return descricao;
 	}
 	
-	public static Prioridade toEnum(Integer codigo) {
+	public static Perfil toEnum(Integer codigo) {
 		if(codigo == null) {
 			return null;
 		}
-		for(Prioridade x : Prioridade.values()) {
+		for(Perfil x : Perfil.values()) {
 			if(codigo.equals(x.getCodigo())) {
 				return x;
 			}

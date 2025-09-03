@@ -7,8 +7,8 @@ import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.turmaa.helpdesk.domain.enuns.Prioridade;
-import com.turmaa.helpdesk.domain.enuns.Status;
+import com.turmaa.helpdesk.domain.enums.Prioridade;
+import com.turmaa.helpdesk.domain.enums.Status;
 
 @Entity
 public class Chamado implements Serializable {

@@ -11,7 +11,7 @@ import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import com.turmaa.helpdesk.domain.enuns.Perfil;
+import com.turmaa.helpdesk.domain.enums.Perfil;
 
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)

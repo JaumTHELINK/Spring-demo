@@ -7,8 +7,8 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import com.turmaa.helpdesk.domain.enuns.Perfil;
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.turmaa.helpdesk.domain.enums.Perfil;
 
 @Entity
 public class Cliente extends Pessoa {

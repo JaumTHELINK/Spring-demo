@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
-import com.turmaa.helpdesk.domain.enuns.Perfil;
+import com.turmaa.helpdesk.domain.enums.Perfil;
 
 @Entity
 public class Tecnico extends Pessoa{

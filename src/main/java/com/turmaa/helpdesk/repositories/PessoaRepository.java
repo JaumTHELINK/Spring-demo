@@ -1,4 +1,4 @@
-package com.turmaa.helpdesk.repositorys;
+package com.turmaa.helpdesk.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
