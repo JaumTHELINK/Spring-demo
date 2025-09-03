@@ -3,10 +3,16 @@ package com.turmaa.helpdesk.domain;
 import java.io.Serializable;
 import java.time.LocalDate;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.turmaa.helpdesk.domain.dtos.ChamadoDTO;
 import com.turmaa.helpdesk.domain.enums.Prioridade;
 import com.turmaa.helpdesk.domain.enums.Status;
 
@@ -59,6 +65,15 @@ public class Chamado implements Serializable {
         this.observacoes = observacoes;
         this.tecnico = tecnico;
         this.cliente = cliente;
+	}
+	public Chamado(ChamadoDTO dto, Tecnico tecnico, Cliente cliente) {
+	    this.id = dto.getId();
+	    this.titulo = dto.getTitulo();
+	    this.observacoes = dto.getObservacoes();
+	    this.prioridade = dto.getPrioridade().getCodigo(); // ou dto.getPrioridade() direto, depende do tipo
+	    this.status = dto.getStatus().getCodigo();         // idem acima
+	    this.tecnico = tecnico;
+	    this.cliente = cliente;
 	}
 
 	public Integer getId() {

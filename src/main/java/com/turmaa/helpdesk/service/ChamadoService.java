@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.turmaa.helpdesk.domain.Chamado;
+import com.turmaa.helpdesk.domain.Cliente;
+import com.turmaa.helpdesk.domain.Tecnico;
 import com.turmaa.helpdesk.domain.dtos.ChamadoDTO;
 import com.turmaa.helpdesk.repositories.ChamadoRepository;
 import com.turmaa.helpdesk.service.exceptions.ObjectNotFoundException;
@@ -17,6 +19,12 @@ public class ChamadoService {
 
 	@Autowired
 	private ChamadoRepository repository;
+	@Autowired
+	private TecnicoService tecnicoService;
+
+	@Autowired
+	private ClienteService clienteService;
+
 
 	public Chamado findById(Integer id) {
 		Optional<Chamado> obj = repository.findById(id);
@@ -30,12 +38,20 @@ public class ChamadoService {
 	}
 
 	public Chamado create(ChamadoDTO objDto) {
-		return repository.save(new Chamado(objDto));
+	    Tecnico tecnico = tecnicoService.findById(objDto.getTecnico());
+	    Cliente cliente = clienteService.findById(objDto.getCliente());
+	    Chamado chamado = new Chamado(objDto, tecnico, cliente);
+	    return repository.save(chamado);
 	}
 
+
 	public Chamado update(Integer id, ChamadoDTO objDto) {
-		findById(id);
-		objDto.setId(id);
-		return repository.save(new Chamado(objDto));
+	    findById(id); // Garante que o chamado existe
+	    objDto.setId(id);
+	    Tecnico tecnico = tecnicoService.findById(objDto.getTecnico());
+	    Cliente cliente = clienteService.findById(objDto.getCliente());
+	    Chamado chamado = new Chamado(objDto, tecnico, cliente);
+	    return repository.save(chamado);
 	}
+
 }
