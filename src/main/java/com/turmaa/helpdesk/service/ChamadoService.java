@@ -24,7 +24,11 @@ public class ChamadoService {
 
 	@Autowired
 	private ClienteService clienteService;
-
+	
+	public void delete(Integer id) {
+	    Chamado obj = findById(id); 
+	    repository.deleteById(id);
+	}
 
 	public Chamado findById(Integer id) {
 		Optional<Chamado> obj = repository.findById(id);

@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 
 import com.turmaa.helpdesk.domain.dtos.TecnicoDTO;
-import com.turmaa.helpdesk.domain.dtos.TecnicoDTO;
 import com.turmaa.helpdesk.domain.enums.Perfil;
 
 @Entity
